@@ -8,18 +8,21 @@ import SideBar from "./components/Sidebar";
 import MainContent from "./components/Main";
 import { useState } from "react";
 import Notify from "./components/Notify";
+import SideBarBottom from "./components/SideBottom";
 
 export default function Home() {
   const [openSideBar, setOpenSideBar] = useState(false)
   const [openNotify, setOpenNotify] = useState(false)
+  const [openSideBarBotton, setOpenSideBottom] = useState(false)
 
   return (
     <div className="relative overflow-hidden bg-[#1C0A00] grid grid-rows-[80px_1fr] items-center  justify-items-center min-h-screen">
       <Header setOpenNotify={setOpenNotify} setOpenSideBar={setOpenSideBar} />
-      <MainContent />
+      <MainContent setOpenSideBottom={setOpenSideBottom}/>
       <BackgroundBeams />
       <SideBar openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
-      <Notify openNotify={openNotify} setOpenNotify={setOpenNotify}/>
+      <Notify openNotify={openNotify} setOpenNotify={setOpenNotify} />
+      <SideBarBottom openSideBar={openSideBarBotton} setOpenSideBottom={setOpenSideBottom} />
     </div>
   );
 }
