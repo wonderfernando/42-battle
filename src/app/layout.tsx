@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt-pt">
       <body
-        className={`antialiased `}
+        className={`antialiased bg-white`}
       >
         <Providers>
            {children}

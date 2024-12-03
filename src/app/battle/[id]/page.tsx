@@ -71,13 +71,12 @@ export default function BattlePage({ params }) {
                     />
                 </div>
                 <div className="bg-[#1b1b1b] rounded-lg shadow p-2">
-                    <Tabs color="default">
+                    <Tabs>
                         <Tab key="op" title="Opções">
                             <div className="flex gap-1">
                                 <Button size="sm">Testar <Play className="text-green-700" size={16}/></Button>
                                 <Link href="4234/report"><Button size="sm">Submter <UploadCloud className="text-blue-700" size={16}/></Button></Link>
                                 <Button size="sm">Desitir <X className="text-red-700" size={16}/></Button>
-
                             </div>
                         </Tab>
 

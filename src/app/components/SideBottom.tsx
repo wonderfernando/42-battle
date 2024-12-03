@@ -21,7 +21,7 @@ export default function SideBarBottom({ openSideBar, setOpenSideBottom }: Props)
         <div ref={asideRef} className={` ${!openSideBar ? "opacity-0 -z-10 " : " opacity-100 z-[999]"} fixed inset-0 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0`}>
             <div className={`rounded-t-3xl absolute overflow-hidden bg-white transition-all   ${openSideBar ? "bottom-0" : "-bottom-full"} right-0 left-0 h-96 text-zinc-800 `}>
                 <div className="grid grid-cols-2 overflow-hidden">
-                    <div className=" overflow-y-auto h-96">
+                    <div className="text-zinc-800 overflow-y-auto h-96">
                         {[21, 34, , 312, 3123, 21321, 31, 31, 3, 3, 13, 1, 3212].map((value, index) => (
                             <CardUserInvite classNameProp="mb-1" key={index} img="./user.jpg" level="LV2" userName="ferda-si" />
                         ))}
@@ -32,7 +32,7 @@ export default function SideBarBottom({ openSideBar, setOpenSideBottom }: Props)
                             <Link href="teste"><Button className=" bg-gradient-to-tr from-red-700 to-red-600 text-white font-extrabold" variant="flat" size="sm" radius="sm" color="danger">Cancelar<AlertCircle /></Button></Link>
                         </div>
                         <div className="">
-                            <Table className="my-6 overflow-y-scroll h-72">
+                            <Table className="text-zinc-800 my-6 overflow-y-scroll h-72">
                                 <TableHeader>
                                     <TableColumn>
                                         #
