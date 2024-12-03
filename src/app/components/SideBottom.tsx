@@ -1,9 +1,9 @@
-import Link from "next/link"
 import { useEffect, useRef } from "react"
-import CardUser, { CardUserInvite } from "./CardUser"
+import  { CardUserInvite } from "./CardUser"
 import { Button } from "@nextui-org/button"
-import { AlertCircle, Rocket, Settings2, Trash2, X } from "lucide-react"
-import { Badge, Chip, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tooltip } from "@nextui-org/react"
+import { AlertCircle, Rocket, Settings2, X } from "lucide-react"
+import {  Chip, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react"
+import Link from "next/link"
 
 interface Props {
     openSideBar: boolean,
@@ -28,8 +28,8 @@ export default function SideBarBottom({ openSideBar, setOpenSideBottom }: Props)
                     </div>
                     <div className="p-4">
                         <div className="flex gap-1">
-                            <Button size="sm" className="bg-gradient-to-tr from-blue-800 to-blue-400 text-white font-extrabold" variant="flat" radius="sm" color="primary">Iniciar Batalha!<Rocket /></Button>
-                            <Button className=" bg-gradient-to-tr from-red-700 to-red-600 text-white font-extrabold" variant="flat" size="sm" radius="sm" color="danger">Cancelar<AlertCircle /></Button>
+                            <Link href={"/battle/432"}><Button size="sm" className="bg-gradient-to-tr from-blue-800 to-blue-400 text-white font-extrabold" variant="flat" radius="sm" color="primary">Iniciar Batalha!<Rocket /></Button></Link>
+                            <Link href="teste"><Button className=" bg-gradient-to-tr from-red-700 to-red-600 text-white font-extrabold" variant="flat" size="sm" radius="sm" color="danger">Cancelar<AlertCircle /></Button></Link>
                         </div>
                         <div className="">
                             <Table className="my-6 overflow-y-scroll h-72">

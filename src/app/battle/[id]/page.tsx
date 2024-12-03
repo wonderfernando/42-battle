@@ -3,6 +3,7 @@ import { Button, Card, CardBody, Code, Tab, Tabs, Textarea } from "@nextui-org/r
 import Editor from "@monaco-editor/react"
 import { useRef } from "react";
 import { Code2, Play, UploadCloud, Workflow, X } from "lucide-react";
+import Link from "next/link";
 export default function BattlePage({ params }) {
     const editorRef = useRef(null);
     function handleEditorDidMount(editor, monaco) {
@@ -74,7 +75,7 @@ export default function BattlePage({ params }) {
                         <Tab key="op" title="Opções">
                             <div className="flex gap-1">
                                 <Button size="sm">Testar <Play className="text-green-700" size={16}/></Button>
-                                <Button size="sm">Submter <UploadCloud className="text-blue-700" size={16}/></Button>
+                                <Link href="4234/report"><Button size="sm">Submter <UploadCloud className="text-blue-700" size={16}/></Button></Link>
                                 <Button size="sm">Desitir <X className="text-red-700" size={16}/></Button>
 
                             </div>
