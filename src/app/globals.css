@@ -18,3 +18,27 @@ body {
   color: var(--foreground);
   background: var(--background);
   }
+
+  /* Estiliza a barra de rolagem */
+::-webkit-scrollbar {
+  width: 6px; /* Largura da barra de rolagem */
+  height: 6px; /* Altura para barras horizontais */
+}
+
+/* Estiliza o "polegar" da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Cor do polegar */
+  border-radius: 10px; /* Arredondamento para suavidade */
+}
+
+/* Opcional: Cor de fundo do trilho da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Cor do fundo do trilho */
+  border-radius: 10px; /* Arredondamento */
+}
+
+/* Opcional: Ao passar o mouse sobre o polegar */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor do polegar ao passar o mouse */
+}
+
