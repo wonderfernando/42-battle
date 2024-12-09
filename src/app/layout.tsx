@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./Providers/NexyUiProvider";
+import { User } from "lucide-react";
+import { UserProvider } from "./lib/Context/UserContext";
 
  
 export const metadata: Metadata = {
@@ -19,10 +21,11 @@ export default function RootLayout({
       <body
         className={`antialiased `}
       >
-        <Providers>
-           {children}
-        </Providers>
-       
+          <Providers>
+            <UserProvider>
+              {children}
+            </UserProvider>
+          </Providers>
       </body>
     </html>
   );

@@ -1,11 +1,12 @@
 "use client"
 import { Button, Card, CardBody, Code, Tab, Tabs, Textarea } from "@nextui-org/react";
 import Editor from "@monaco-editor/react"
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Code2, Play, UploadCloud, Workflow, X } from "lucide-react";
 import Link from "next/link";
-export default function BattlePage({ params }) {
+export default function BattlePage() {
     const editorRef = useRef(null);
+    const [value, setValue] = useState<string|undefined>(`#include <stdio.h>\n\nint main() {\n    printf("Hello, C!\\n");\n    return 0;\n}`)
     function handleEditorDidMount(editor, monaco) {
         editorRef.current = editor;
     }
@@ -48,6 +49,17 @@ export default function BattlePage({ params }) {
             },
         });
     };
+     const handleSubmitTest = async () => {
+        const response = await fetch("http://localhost:4444/test", {
+            method: "POST",
+            headers:{
+                 "Content-Type": "application/json",
+            },
+            body: JSON.stringify({value: value})
+        })
+        const data = await response.json()
+        console.log(data)
+    }
     return (
         <div className="p-1 grid grid-cols-2 gap-2 bg-[#161616]">
             <div className="flex flex-col rounded-lg shadow  bg-[#1b1b1b] text-white gap-6 h-screen overflow-y-auto p-6">
@@ -65,16 +77,18 @@ export default function BattlePage({ params }) {
                     <Editor
                         height={"50vh"}
                         defaultLanguage="c"
-                        defaultValue={`#include <stdio.h>\n\nint main() {\n    printf("Hello, C!\\n");\n    return 0;\n}`} onMount={handleEditorDidMount}
+                        onMount={handleEditorDidMount}
                         theme="c-theme"
                         beforeMount={handleEditorWillMount}
+                        value={value}
+                        onChange={(value) => setValue(value)}
                     />
-                </div>
+                 </div>
                 <div className="bg-[#1b1b1b] rounded-lg shadow p-2">
                     <Tabs color="default">
                         <Tab key="op" title="Opções">
                             <div className="flex gap-1">
-                                <Button size="sm">Testar <Play className="text-green-700" size={16}/></Button>
+                                <Button type="button" size="sm" onClick={handleSubmitTest}>Testar <Play className="text-green-700" size={16}/></Button>
                                 <Link href="4234/report"><Button size="sm">Submter <UploadCloud className="text-blue-700" size={16}/></Button></Link>
                                 <Button size="sm">Desitir <X className="text-red-700" size={16}/></Button>
 
